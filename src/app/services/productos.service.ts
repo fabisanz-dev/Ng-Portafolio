@@ -12,10 +12,6 @@ import { Observable, Subject, asapScheduler, pipe, of, from, interval, merge, fr
 })
 export class ProductosService {
 
-
- 
-  dataProducto:any[] = [];
-  loadingProductos:boolean = false;
   constructor(
     public _http: Http,
     private _http_client: HttpClient
@@ -24,20 +20,9 @@ export class ProductosService {
     
    }
 
-  getProductos(){
-    this.loadingProductos = true;
-    this._http.get("https://portaf-test.firebaseio.com/productos_idx.json")
-    .subscribe(
-      data=>{
-        setTimeout(() => {
-          this.loadingProductos = false;
-
-          this.dataProducto = data.json();
-        }, 1000);
-        
-        //console.log(this.dataProducto);
-      }
-    )
+  getProductos():Observable<any>{
+ 
+    return this._http_client.get("https://portaf-test.firebaseio.com/productos_idx.json");
 
   }
 

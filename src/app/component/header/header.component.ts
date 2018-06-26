@@ -15,41 +15,20 @@ export class HeaderComponent implements OnInit {
   public searchKey:any;
 
   public search: FormControl;
-  public itemsData:any[];
-  public itemsSearched:any[];
-
 
   constructor(
     public data : InfoService,
-    private _items: ProductosService,
     private _router:Router
     ){
-    this.searchKey = "hfghf";
-
     this.search = new FormControl();
-    this.itemsData = [];
-    this.itemsSearched = [];
-
 
   }
 
   ngOnInit() {
-    console.log(this.searchKey)
 
     this.search.valueChanges.subscribe(
       searchKey => {
-
         this._router.navigate( ['buscar', searchKey ]);
-
-
-        //console.log(searchKey);
-        
-        /*this.itemsData = this._items.dataProducto;
-
-        //filtra nombre y apellido del usuario 
-        this.itemsSearched = this.itemsData.filter(x => (x.titulo + x.categoria).toLowerCase().includes(searchKey.toLowerCase()));*/
-
-        //console.log(this.itemsSearched);
     });
 
   }

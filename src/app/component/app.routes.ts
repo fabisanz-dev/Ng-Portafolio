@@ -1,10 +1,12 @@
+
 import { Routes, RouterModule, Router } from '@angular/router';
 import { NgModule, Component } from '@angular/core';
 
 import {
  AboutComponent,
  PortafolioComponent,
- ItemComponent
+ ItemComponent,
+ SearchComponent
 }
 from "./index.paginas";
 //import { PageNotFoundComponent } from './';
@@ -12,7 +14,8 @@ from "./index.paginas";
 const routes: Routes = [
     { path: '', component: PortafolioComponent },
     { path: 'about', component: AboutComponent },
-    { path: 'item', component: ItemComponent },
+    { path: 'item/:id', component: ItemComponent },
+    { path: 'buscar/:termino', component: SearchComponent },
     { path: '**', pathMatch: 'full', redirectTo: '' },
 
     //{ path: 'path/:routeParam', component: MyComponent },

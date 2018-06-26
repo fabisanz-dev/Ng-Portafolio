@@ -1,5 +1,8 @@
-import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,6 +16,7 @@ import { ItemComponent } from './component/item/item.component';
 
 import { app_routing } from './component/app.routes';
 import { InfoService } from './services/info.service';
+import { SearchComponent } from './component/search/search.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +25,15 @@ import { InfoService } from './services/info.service';
     FooterComponent,
     PortafolioComponent,
     AboutComponent,
-    ItemComponent
+    ItemComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     app_routing
   ],
   providers: [
